@@ -1,0 +1,21 @@
+{% extends 'auth/base.html' %}
+
+{% block title %}
+تسجيل الدخول
+{% endblock %}
+
+
+{% block cont %}
+
+    <h1>تسجيل الدخول</h1>
+
+    <input type="email" placeholder="البريد الالكتروني" name="email">
+
+    <input type="password" placeholder="كلمة المرور" name="password">
+
+    <div class="btns">
+        <a href="{% url 'register' %}">انشاء حساب ؟</a>
+        <button>تسجيل</button>
+    </div>
+
+{% endblock %}

@@ -1,28 +1,31 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login </title>
-    <link rel="stylesheet" href="css/auth.css">
+    <title> {% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
 </head>
 <body>
     
 
-    <form class="container">
+    <form class="container" method="POST">
 
-        <h1>تسجيل الدخول</h1>
+        {% csrf_token %}
 
-        <input type="email" placeholder="البريد الالكتروني" name="email">
+        {% block cont %}
+        {% endblock %}
         
-        <input type="password" placeholder="كلمة المرور" name="password">
-
-        <div class="btns">
-            <a href="#">انشاء حساب ؟</a>
-            <button>تسجيل</button>
-        </div>
 
     </form>
+
+
+    <script>
+        if("{{error}}"){
+            alert("{{error}}")
+        }
+    </script>
 
 </body>
 </html>

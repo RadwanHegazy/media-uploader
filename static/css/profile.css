@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root{
+    --var-font:'Cairo',sans-serif;
+    --var-priamary-color:#73C0F3;
+}   
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #ECEFF1;
+}
+
+.up {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.up img {
+    position: absolute;
+    left: 0;
+    top: -150px;
+    width: 100%;
+    height: 400px;
+    z-index: -1;
+    filter: brightness(.6);
+}
+
+.up > a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: crimson;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.up button {
+    width: 200px;
+    height: 60px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-family: var(--var-font);
+    color: #fff;
+    background-color: var(--var-priamary-color);
+    box-shadow: 0px 3px 12px #73c0f391;
+    cursor: pointer;
+}
+
+.down {
+    width: 100%;
+    height: 450px;
+    overflow-y: auto;
+}
+
+.down h1 {
+    text-align: center;
+    font-family: var(--var-font);
+    color: var(--var-priamary-color);
+    font-size: 2.9rem;
+}
+
+
+.files {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.files .file {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 200px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.files .file > p {
+    color: var(--var-priamary-color);
+    font-weight: bold;
+    font-family: var(--var-font);
+}
+
+.files .file .options {
+    width: 100%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.options a {
+    text-decoration: none;
+    display: flex;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: var(--var-priamary-color);
+    background-color: #73C0F330;
+}
+
+.options a:nth-child(2){
+    color: yellow;
+    background-color: #fafa8e5b;
+}
+
+.options a:nth-child(3){
+    color: #dc143c;
+    background-color: #dc143c30;
+}

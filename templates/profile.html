@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Profile </title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <form class="up" method="POST" enctype="application/x-www-form-urlencoded">
+        <img src="images/bg.png" alt="">
+        <input type="file" hidden id="file">
+        <button type="button" >
+            ارفع ملفاتك الان
+        </button>
+
+        <a href="#" class="fas fa-sign-out"></a>
+    </form>
+
+
+    <div class="down">
+
+        <h1>ملفاتك</h1>
+        
+        <div class="files">
+
+
+            <div class="file">
+                <p>FileName.png</p>
+                <div class="options">
+                    <a href="#" class="fas fa-download"></a>
+                    <a href="#" class="fas fa-copy"></a>
+                    <a href="#" class="fas fa-trash"></a>
+                </div>
+            </div>
+
+
+            
+        </div>
+    
+    </div>
+
+
+    <script>
+        
+        var form = document.querySelector('.up');
+        var file = form.querySelector('input[type="file"]');
+        var btn = form.querySelector('button');
+
+        btn.addEventListener('click',()=>{
+            file.click()
+        })
+
+        file.addEventListener('change',()=>{
+            form.submit()
+        })
+    
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{user.full_name}}'s Profile </title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <form class="up" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="{% static 'images/bg.png' %}" alt="">
+        <input type="file"  id="file" name="file" hidden>
+        <button type="button" >
+            ارفع ملفاتك الان
+        </button>
+
+        <a href="{% url 'logout' %}" class="fas fa-sign-out"></a>
+    </form>
+
+
+    <div class="down">
+
+        <h1>ملفاتك</h1>
+        
+        <div class="files">
+
+
+
+            {% for file in files %}
+
+                <div class="file" id="{{file.uuid}}">
+                    <p>{{file.name}}</p>
+                    <div class="options">
+                        <a href="{% url 'download' file.uuid %}" class="fas fa-download" download></a>
+                        <a href="#" class="fas fa-copy cp"></a>
+                        <a href="?delete={{file.uuid}}" class="fas fa-trash"></a>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+            
+        </div>
+    
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        
+        var form = document.querySelector('.up');
+        var file = form.querySelector('input[type="file"]');
+        var btn = form.querySelector('button');
+
+        btn.addEventListener('click',()=>{
+            file.click()
+        })
+
+        file.addEventListener('change',(e)=>{
+            console.log(e.target.files[0])
+            form.submit()
+        })
+
+
+        document.querySelectorAll('.file').forEach( f=>{
+
+            var file_uuid = f.id;
+            var copy_btn = f.querySelector('.cp');
+
+            copy_btn.addEventListener('click',function(){
+                
+                var download_link = `${window.location.href}/download/${file_uuid}`.replace('#/','')
+
+                navigator.clipboard.writeText(download_link);
+                alert('تم نسخ رابط التنزيل بنجاح')
+                
+
+            })
+
+
+        } )
+    
+
+    </script>
+
+</body>
+</html>
